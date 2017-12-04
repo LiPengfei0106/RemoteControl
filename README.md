@@ -1,2 +1,2 @@
-# RemoteControl
-Î¢ÐÅÒ£¿ØÆ÷Ð¡³ÌÐò
+# RemoteControls
+wx remote
