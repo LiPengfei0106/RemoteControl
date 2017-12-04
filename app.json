@@ -1,0 +1,13 @@
+{
+  "pages":[
+    "pages/index/index",
+    "pages/playList/index",
+    "pages/logs/logs"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor":"#222222",
+    "backgroundColor": "#222222",
+    "navigationBarTitleText":"Clear Remote"
+  }
+}

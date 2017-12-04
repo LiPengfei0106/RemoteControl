@@ -1,0 +1,51 @@
+<view class="container">
+
+	<!-- 导航栏 -->
+	<scroll-view scroll-x="true" class="tag-bar" >
+		<view bind:tap="changeTagFocus" data-id="-1" class="{{(tagFocus==-1)?'tag tag-onfocus':'tag'}}">
+			{{'直播'}}
+		</view>
+		<view wx:for="{{tag}}" wx:key="{{item.ID}}" bind:tap="changeTagFocus" data-id="{{item.ID}}" class="{{(tagFocus==item.ID)?'tag tag-onfocus':'tag'}}">
+			{{item.CategoryName['zh-CN']}}
+		</view>
+	</scroll-view>
+
+	<!-- 直播列表 -->
+	<scroll-view wx:if="{{tagFocus==-1}}" scroll-y="true" class="live-list">
+		<!-- 直播 -->
+		<button wx:for="{{liveList}}" wx:key="{{item.ID}}" class="live" bind:tap="changeChannel"  data-idx="{{index}}" >
+			<image src="{{item.ChannelPicURL}}" mode="aspectFit"  class="channel-icon"></image>
+			<text class="channel-name">{{item.ChannelName['zh-CN']}}</text>
+		</button>
+		<!-- 无底洞 -->
+
+	</scroll-view>
+
+
+	<!-- 电影列表 -->
+	<scroll-view wx:if="{{tagFocus!=-1}}" scroll-y="true" class="movie-list">
+		
+		<!-- 购买弹窗 -->
+		<!-- <button class="movie-buy-all">{{'￥6 购买全部'}}</button> -->
+
+		<!-- 电影 -->
+		<button wx:for="{{movieList}}" wx:key="{{item.ID}}" bind:tap="playMovie" data-id="{{item.ID}}" class="movie">
+			<image src="{{item.PicURL_ABS}}" lazy-load="true" mode="aspectFill"  class="movie-cover"></image>
+			<text class="movie-name">{{item.Name['zh-CN']}}</text>
+			<text class="movie-score">{{item.Score + '分'}}</text>
+			<text class="movie-intro">{{'年份：' + item.Year}}</text>
+			<text class="movie-intro">{{'导演：' + item.Director['zh-CN']}}</text>
+			<text class="movie-intro">{{'主演：' + item.Actor['zh-CN']}}</text>
+			<!-- <button>{{'￥' + item.Price +'购买'}}</button> -->
+		</button>
+
+		<!-- 无底洞 -->
+		<block wx:if="{{blackHoleShow}}">
+			<text class="black-hole-title">{{'拉到底了，给你看个广告~'}}</text>
+			<image src="../../static/timg.gif" mode="aspectFit"  class="black-hole"></image>
+		</block>
+
+	
+	</scroll-view>
+
+</view>
