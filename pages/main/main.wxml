@@ -1,0 +1,48 @@
+<include src="../../widget/widget.wxml"/>
+<view class="page">
+  <view class="tabBar">
+
+    <view class="navbar">
+      <view wx:for="{{tabs}}" wx:key="*this" id="{{index}}" class="navbar__item {{activeIndex == index ? 'navbar__item_on' : ''}}" bindtap="tabClick">
+        <view class="navbar__title">{{item.tag.tagName['zh-CN']}}</view>
+      </view>
+      <view class="navbar__slider" style="width: {{sliderWidth}}px; transform: translateX({{sliderOffset}}px); -webkit-transform: translateX({{sliderOffset}}px);"></view>
+    </view>
+    <navigator class="search" url="search/search">
+      <icon type="search" size='18'/>
+    </navigator>
+  </view>
+  <scroll-view style="position: absolute;top: 50px;width: 100%;height: {{contentHeight}}px;">
+    <swiper current="{{activeIndex}}" duration="300" bindchange="bindChange">
+      <block wx:for="{{tabs}}" wx:key="*this">
+        <swiper-item wx:if="{{item.tag.tagCode == 'Live'}}">
+          <view class="channelItem" wx:for="{{item.contentList}}" wx:key="*this" data-channel="{{item}}" data-channelindex="{{index}}" bindtap="playLive">
+            <image class="channelIcon" mode='aspectFit' src='{{item.ChannelPicURL}}'></image>
+            <view class="channelName">{{item.ChannelName['zh-CN']}}</view>
+          </view>
+        </swiper-item>
+        <swiper-item wx:elif="{{item.tag.tagCode == 'Movie'}}">
+          <view class="movieTagItem" wx:for="{{item.contentList}}" wx:key="*this">
+            <navigator url="movielist/movielist?index={{index}}">
+              <view class='movieTagBar'>
+                <text class="movieTagName">{{item.tag.CategoryName['zh-CN']}}</text>
+                <text class="movieTagMore">更多 >></text>
+              </view>
+            </navigator>
+            <view class="movieItem" wx:for="{{[0, 1, 2]}}" wx:key="*this" wx:for-item="i" data-movie="{{item.movieList[i]}}" bindtap="playMovie">
+              <view class="moviePoster">
+                <image src='{{item.movieList[i].PicURL_ABS}}' />
+                <view class="movieScore">{{item.movieList[i].Score}}</view>
+              </view>
+              <view class="movieDetail">
+                <view class="movieName">{{item.movieList[i].Name['zh-CN']}}</view>
+                <view class="movieActor">{{item.movieList[i].Actor['zh-CN']}}</view>
+                <view class="movieIntro">{{item.movieList[i].Introduce['zh-CN']}}</view>
+              </view>
+            </view>
+          </view>
+        </swiper-item>
+      </block>
+    </swiper>
+  </scroll-view>
+</view>

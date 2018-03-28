@@ -1,73 +1,16 @@
-
-<!--wxml-->
-<wxs module="flash">
-  var getClassName = function(touchPadIsTouched,touchPadIsTaped,touchBackIsTaped){
-    var className = "container ";
-
-    if(touchPadIsTouched){
-      className =  className + "touch-pad-active";
-    }
-
-    if(touchPadIsTaped){
-      className =  className + "touch-pad-enter";
-    }
-
-    if(touchBackIsTaped){
-      className =  className + "touch-back-active";
-    }
-
-    // console.log(className)
-
-    return className
-  }
-  
-  module.exports.getClassName = getClassName;
-</wxs>
-
 <!--index.wxml-->
+<include src="../../widget/widget.wxml"/>
 
-
-<view class="{{ flash.getClassName(touchPadIsTouched,touchPadIsTaped,touchBackIsTaped) }}">
-
-<!--   <view class="userinfo">
-
-
-    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
-    
-
-    <block wx:else>
+<view class="page">
+  <view class="userinfo">
       <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
       <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-    </block>
-  
-
-  </view> -->
-<!--   
+  </view>
   <view class="usermotto">
-  
-    <text class="user-motto">{{motto}}mmm</text>
-  </view>
- -->
-<!--   <view class="touch-pad" bind:tap="touchPadTap" bind:touchmove="touchPadMove" bind:touchend="touchPadEnd">
-    <text class="userinfo-nickname">{{touchPad.location.x + ',' + touchPad.location.y}}</text>
-  </view>
- -->
-
-  <view class="play-bar">
-    <navigator class="play-bar-button" url="../playList/index">{{'打开播放列表'}}</navigator>
-  </view>
-
-  <view class="touch-pad" bind:tap="touchPadTap" bind:touchstart="touchPadSwipeStart" bind:touchend="touchPadSwipeEnd">
-    <view class="touch-pad-tips">
-      <view class="touch-pad-corner"></view>
-      <view class="touch-pad-corner"></view>
-      <view class="touch-pad-corner"></view>
-      <view class="touch-pad-corner"></view>
-      {{'滑动即可移动焦点，轻触确定'}}
-    </view>
-  </view>
-
-  <view class="touch-back"  bind:touchstart="touchBackStart" bind:touchend="touchBackEnd" bind:tap="touchBackTap" bind:longpress="touchBackLongPress">
-    <view class="touch-back-tips">{{'返回'}}</view>
+    <button  class="login_btn" open-type="getUserInfo" bindgetuserinfo="getUserInfo">
+      <icon wx:if="{{state == 1}}" type="success" size="20"></icon>
+      <icon wx:if="{{state == 0}}" type="circle" size="20"></icon>
+      {{motto}}
+    </button>
   </view>
 </view>

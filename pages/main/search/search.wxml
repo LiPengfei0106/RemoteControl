@@ -1,0 +1,40 @@
+<include src="../../../widget/widget.wxml" />
+<view class="page">
+  <view>
+    <view class="weui-search-bar">
+      <view class="weui-search-bar__form">
+        <view class="weui-search-bar__box">
+          <icon class="weui-icon-search_in-box" type="search" size="14"></icon>
+          <input type="search" class="weui-search-bar__input" placeholder="搜索" value="{{inputVal}}" focus="{{inputShowed}}" bindinput="inputTyping" />
+          <view class="weui-icon-clear" wx:if="{{inputVal.length > 0}}" bindtap="clearInput">
+            <icon type="clear" size="14"></icon>
+          </view>
+        </view>
+        <label class="weui-search-bar__label" hidden="{{inputShowed}}" bindtap="showInput">
+           <icon class="weui-icon-search" type="search" size="14"></icon> 
+          <view class="weui-search-bar__text">搜索</view>
+        </label>
+      </view>
+      <view class="weui-search-bar__cancel-btn" hidden="{{!inputShowed}}" bindtap="hideInput">取消</view>
+    </view>
+    <view class="searchbar-result" wx:if="{{results.length > 0}}">
+      <block wx:for="{{results}}" wx:key="*this">
+        <view class="channelItem" wx:if="{{item.type == 'live'}}" data-channelindex="{{item.channel.index}}" bindtap="playLive">
+          <image class="channelIcon" mode='aspectFit' src='{{item.channel.ChannelPicURL}}'></image>
+          <view class="channelName">{{item.channel.ChannelName['zh-CN']}}</view>
+        </view>
+        <view class="movieItem" wx:if="{{item.type == 'movie'}}" data-movieid="{{item.movie.ID}}" bindtap="playMovie">
+          <view class="moviePoster">
+            <image src='{{item.movie.PicURL_ABS}}' />
+            <view class="movieScore">{{item.movie.Score}}</view>
+          </view>
+          <view class="movieDetail">
+            <view class="movieName">{{item.movie.Name['zh-CN']}}</view>
+            <view class="movieActor">{{item.movie.Actor['zh-CN']}}</view>
+            <view class="movieIntro">{{item.movie.Introduce['zh-CN']}}</view>
+          </view>
+        </view>
+      </block>
+    </view>
+  </view>
+</view>

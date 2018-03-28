@@ -1,0 +1,13 @@
+<!--pages/main/mediadetail/mediadetail.wxml-->
+<view class="playing container">
+	<view class="thumbnail">
+		<image src="{{content.imgUrl}}" />
+	</view>
+	<view class="detail">
+		<view class="title">{{content.name}}</view>
+		<view class="author">{{content.name}}</view>
+		<view class="action">
+			<view class="act-toggle" bindtap="playToggle"><image src="https://github.com/eyasliu/wechat-app-music/blob/es/src/images/{{content.state == 'pause' ? 'pause' : 'play'}}.png?raw=true" /></view>
+		</view>
+	</view>
+</view>

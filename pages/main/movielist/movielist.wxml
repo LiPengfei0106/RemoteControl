@@ -1,0 +1,15 @@
+<!--pages/main/movielist/movielist.wxml-->
+<include src="../../../widget/widget.wxml"/>
+<view class="page">
+  <view class="movieItem" wx:for="{{movieList.movieList}}" wx:key="*this" data-movie="{{item}}" bindtap="playMovie">
+    <view class="moviePoster">
+      <image src='{{item.PicURL_ABS}}'/>
+      <view class="movieScore">{{item.Score}}</view>
+    </view>
+    <view class="movieDetail">
+      <view class="movieName">{{item.Name['zh-CN']}}</view>
+      <view class="movieActor">{{item.Actor['zh-CN']}}</view>
+      <view class="movieIntro">{{item.Introduce['zh-CN']}}</view>
+    </view>
+  </view>
+</view>

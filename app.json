@@ -1,13 +1,23 @@
 {
-  "pages":[
+  "pages": [
+    "pages/main/mediadetail/mediadetail",
     "pages/index/index",
-    "pages/playList/index",
-    "pages/logs/logs"
+    "pages/control/PadControl/PadControl",
+    "pages/main/movielist/movielist",
+    "pages/main/search/search",
+    "pages/main/main"
   ],
-  "window":{
-    "backgroundTextStyle":"light",
-    "navigationBarBackgroundColor":"#222222",
-    "backgroundColor": "#222222",
-    "navigationBarTitleText":"Clear Remote"
-  }
+  "window": {
+    "navigationBarTextStyle": "white",
+    "navigationBarTitleText": "ClearTV遥控器",
+    "navigationBarBackgroundColor": "#333",
+    "backgroundColor": "#333"
+  },
+  "networkTimeout": {
+    "request": 10000,
+    "connectSocket": 10000,
+    "uploadFile": 10000,
+    "downloadFile": 10000
+  },
+  "debug": false
 }

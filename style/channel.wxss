@@ -1,0 +1,25 @@
+.channelItem {
+  border-radius: 9px;
+  margin: 10px;
+  height: 80px;
+  color: rgb(245, 245, 245);
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.channelIcon {
+  height: 60px;
+  width: 60px;
+  margin: 10px;
+  left: 10px;
+  position: absolute;
+  background: center center no-repeat;
+  background-size: contain;
+}
+
+.channelName {
+  display: inline-block;
+  position: absolute;
+  left: 100px;
+  font-size: 20px;
+  line-height: 80px;
+}

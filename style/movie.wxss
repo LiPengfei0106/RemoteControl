@@ -1,0 +1,107 @@
+.movieTagItem {
+  height: 500px;
+  width: 100%;
+}
+.movieTagBar {
+  display:flex
+}
+.movieTagBar text{
+  line-height: 30px;
+  margin: 0px 20px;
+  padding-top: 10px;
+}
+.movieTagMore {
+  width: 50%;
+  text-align: right;
+  font-size: 16px;
+  color: rgb(100, 100, 100);
+}
+.movieTagName {
+  width: 50%;
+  text-align: left;
+  font-size: 18px;
+  color: rgb(175, 175, 175);
+}
+
+.movieItem {
+  height: 140px;
+  margin: 10px;
+  position: relative;
+  vertical-align: middle;
+  border-radius: 4px;
+  color: rgb(175, 175, 175);
+  background-color: rgba(255, 255, 255, 0.05);
+  overflow: hidden;
+}
+
+.moviePoster {
+  height: 132px;
+  width: 93px;
+}
+
+.moviePoster image {
+  height: 124px;
+  width: 86px;
+  margin: 8px;
+  left: 0px;
+  border-radius: 4px;
+  position: absolute;
+}
+
+.movieScore {
+  width: 86px;
+  padding-top: 12px;
+  text-align: right;
+  font-style: italic;
+  font-size: 12px;
+  color: rgb(255, 150, 0);
+  text-shadow: black 2px 2px 2px;
+  position: absolute;
+}
+
+.movieDetail {
+  position: absolute;
+  text-align: left;
+  top: 0px;
+  left: 105px;
+  bottom: 0px;
+  right: 10px;
+  float: right;
+}
+
+.movieName {
+  margin-top: 6px;
+  display: block;
+  line-height: 1.5;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  font-weight: 300;
+  font-size: 22px;
+  color: rgb(205, 215, 225);
+}
+
+.movieActor {
+  line-height: 2;
+  display: block;
+  font-style: italic;
+  font-size: 12px;
+  font-weight: 200;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  color: rgb(180, 190, 200);
+}
+
+.movieIntro {
+  overflow-x: hidden;
+  line-height: 1.5;
+  display: block;
+  font-size: 16px;
+  font-weight: 100;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+  color: rgb(205, 215, 225);
+}
